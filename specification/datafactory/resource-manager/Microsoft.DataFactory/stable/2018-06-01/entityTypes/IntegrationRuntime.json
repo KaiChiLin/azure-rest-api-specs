@@ -616,15 +616,6 @@
             "$ref": "#/definitions/LinkedIntegrationRuntime"
           }
         },
-        "sharedWithFactories": {
-          "description": "The MSI-s of the data factories to which the integration runtime is shared.",
-          "type": "array",
-          "items": {
-            "description": "The service principals of data factories",
-            "type": "string"
-          },
-          "readOnly": true
-        },
         "pushedVersion": {
           "description": "The version that the integration runtime is going to update to.",
           "type": "string",
@@ -633,6 +624,12 @@
         "latestVersion": {
           "description": "The latest version on download center.",
           "type": "string",
+          "readOnly": true
+        },
+        "autoUpdateETA": {
+          "description": "The estimated time when the self-hosted integration runtime will be updated.",
+          "type": "string",
+          "format": "date-time",
           "readOnly": true
         }
       }
@@ -770,6 +767,7 @@
           "description": "The result of the last integration runtime node update.",
           "type": "string",
           "enum": [
+            "None",
             "Succeed",
             "Fail"
           ],
